@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Style Login Page</title>
+    <style>
+        /* พื้นหลังและจัดตำแหน่งของ body */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+
+        /* แถบด้านบน (Navbar) */
+        .navbar {
+            background-color: #f8f8f8;
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 20px;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 1000;
+        }
+
+        .navbar a {
+            color: #333;
+            text-decoration: none;
+            font-size: 16px;
+            margin: 0 20px;
+        }
+
+        .navbar a:hover {
+            text-decoration: underline;
+        }
+
+        .navbar .logo {
+            font-size: 24px;
+            font-weight: bold;
+            color: #ff0000;
+        }
+
+        .navbar input[type="text"] {
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+        }
+
+        .navbar button {
+            padding: 8px 15px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .navbar button:hover {
+            background-color: #cc0000;
+        }
+
+        /* แบ่งพื้นที่สำหรับด้านข้าง (Sidebar) */
+        .sidebar {
+            position: fixed;
+            top: 60px; /* เนื่องจากมี navbar อยู่ด้านบน */
+            left: 0;
+            width: 220px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 2px 0px 5px rgba(0, 0, 0, 0.1);
+            padding-top: 20px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding-left: 10px;
+        }
+
+        .sidebar a {
+            text-decoration: none;
+            color: #555;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .sidebar a:hover {
+            color: #ff0000;
+        }
+
+        /* กล่อง Login */
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            margin-top: 100px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff0000;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        button:hover {
+            background-color: #cc0000;
+        }
+
+        .register-link {
+            display: block;
+            margin-top: 15px;
+            font-size: 14px;
+        }
+
+        .register-link a {
+            color: #007bff;
+            text-decoration: none;
+        }
+
+        .register-link a:hover {
+            text-decoration: underline;
+        }
+
+        /* สำหรับพื้นที่ด้านในของเนื้อหาหลัก */
+        .content {
+            margin-left: 240px;
+            margin-top: 100px; /* ให้ข้างบนไม่ทับกับ navbar */
+            padding: 20px;
+        }
+
+        /* สำหรับเนื้อหาใน Sidebar */
+        .sidebar .links a {
+            padding-left: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- แถบด้านบน (Navbar) -->
+    <div class="navbar">
+        <div class="logo">BigBoon</div>
+        <input type="text" placeholder="Search">
+        <button>Search</button>
+        <div>
+            <a href="login.html">Login</a>
+            <a href="register.html">Sign Up</a>
+        </div>
+    </div>
+
+    <!-- ด้านข้าง (Sidebar) -->
+    <div class="sidebar">
+        <a href="#">Home</a>
+        <a href="#">Subscriptions</a>
+        <a href="#">Library</a>
+        <a href="#">History</a>
+        <a href="#">Your Videos</a>
+        <a href="#">Watch Later</a>
+        <a href="#">Liked Videos</a>
+        <a href="#">Trending</a>
+        <a href="#">Music</a>
+        <a href="#">Gaming</a>
+    </div>
+
+    <!-- กล่อง Login -->
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+
+        <!-- ปุ่มสมัคร -->
+        <div class="register-link">
+            <span>Don't have an account?</span> 
+            <a href="https://example.com/register" target="_blank">Sign up here</a>
+        </div>
+    </div>
+
+    <!-- เนื้อหาหลัก -->
+    <div class="content">
+        <!-- คุณสามารถเพิ่มเนื้อหาต่างๆ ที่นี่ -->
+        <h2>Welcome to BigBoon</h2>
+        <p>This is the main content area. You can add your video cards, playlists, or other content here like YouTube does.</p>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Example validation logic
+            if (username === "admin" && password === "1234") {
+                alert("Login successful!");
+                window.location.href = "home.html";  // Redirect to home page after login
+            } else {
+                alert("Invalid username or password.");
+            }
+        });
+    </script>
+
+</body>
+</html>

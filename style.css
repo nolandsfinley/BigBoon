@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Live CSS Effects</title>
+    <style>
+        /* พื้นหลังแบบไล่สี */
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(45deg, #ff7b9c, #d1eaff);
+            animation: gradientChange 6s infinite alternate;
+        }
+
+        /* การสร้างการเปลี่ยนสีพื้นหลัง */
+        @keyframes gradientChange {
+            0% {
+                background: linear-gradient(45deg, #ff7b9c, #d1eaff);
+            }
+            25% {
+                background: linear-gradient(45deg, #ff4f6f, #ffb6c1);
+            }
+            50% {
+                background: linear-gradient(45deg, #a1d8f1, #f9c4d2);
+            }
+            75% {
+                background: linear-gradient(45deg, #ff7b9c, #ffb6c1);
+            }
+            100% {
+                background: linear-gradient(45deg, #ff7b9c, #d1eaff);
+            }
+        }
+
+        /* กล่องล็อกอิน */
+        .login-container {
+            background-color: white;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            text-align: center;
+            width: 300px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        /* เมื่อวางเมาส์ที่กล่องล็อกอิน */
+        .login-container:hover {
+            transform: scale(1.05); /* ขยายกล่อง */
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2); /* เพิ่มเงา */
+        }
+
+        h1 {
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+            text-align: left;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 5px;
+            color: #555;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            transition: border-color 0.3s ease;
+        }
+
+        /* เมื่อโฮเวอร์ที่ input */
+        input:focus {
+            border-color: #ff7b9c; /* สีขอบเปลี่ยน */
+            outline: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            background-color: #ff7b9c;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        /* เมื่อโฮเวอร์ที่ปุ่ม */
+        button:hover {
+            background-color: #ff4f6f;
+        }
+    </style>
+</head>
+<body>
+    <div class="login-container">
+        <h1>Login</h1>
+        <form id="loginForm">
+            <div class="form-group">
+                <label for="username">Username</label>
+                <input type="text" id="username" placeholder="Enter your username" required>
+            </div>
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input type="password" id="password" placeholder="Enter your password" required>
+            </div>
+            <button type="submit">Login</button>
+        </form>
+    </div>
+
+    <script>
+        document.getElementById("loginForm").addEventListener("submit", function (event) {
+            event.preventDefault(); // Prevent form from submitting normally
+
+            const username = document.getElementById("username").value;
+            const password = document.getElementById("password").value;
+
+            // Example validation logic
+            if (username === "admin" && password === "1234") {
+                alert("Login successful!");
+            } else {
+                alert("Invalid username or password.");
+            }
+        });
+    </script>
+</body>
+</html>
